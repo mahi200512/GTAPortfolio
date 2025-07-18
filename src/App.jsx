@@ -25,37 +25,37 @@ function App() {
     title: "Smart Healthcare Monitoring via IoT",
     color: "from-pink-500 to-purple-600",
     href: "https://docs.google.com/document/d/19k1MUN0G0Iueoa53PDX1YkqJf-zGT-lb/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
-    image: "/images/Health.png",
+    image: "/images/Health.webp",
   },
   {
     title: "Research work on Blockchain-based EHR Management",
     color: "from-blue-500 to-indigo-600",
     href: "https://github.com/mahi200512/MedChain",
-    image: "/images/doctor.png",
+    image: "/images/doctor.webp",
   },
   {
     title: "Foot Drop Dorsiflexion Device",
     color: "from-green-500 to-emerald-600",
     href: "https://docs.google.com/document/d/19k1MUN0G0Iueoa53PDX1YkqJf-zGT-lb/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
-    image: "/images/footDorsi.jpg",
+    image: "/images/footDorsi.webp",
   },
   {
     title: "Self-Driving Delivery Robot with IoT Integration",
     color: "from-pink-500 to-purple-600",
     href: "https://github.com/mahi200512/Delivery-Robot",
-    image: "/images/delro.png",
+    image: "/images/delro.webp",
   },
   {
     title: "Research work on Ponzi Detection with ZKP",
     color: "from-yellow-500 to-orange-600",
     href: "https://drive.google.com/file/d/1HF41jk5JNSqnwwQ64I07XOWiecNhlHk0/view?usp=drive_link",
-    image: "/images/Ponzi.png",
+    image: "/images/Ponzi.webp",
   },
   {
     title: "Train Object Detection",
     color: "from-red-500 to-pink-600",
     href: "https://github.com/mahi200512/Train-Crack-and-Object-Detection-using-IoT-and-Multi-sensors",
-    image: "/images/Train.png",
+    image: "/images/Train.webp",
   },
 ];
   useEffect(() => {
@@ -180,7 +180,7 @@ function App() {
                 </mask>
               </defs>
               <image
-                href="/images/background.png"
+                href="/images/background.webp"
                 width="100%"
                 height="100%"
                 preserveAspectRatio="xMidYMid slice"
@@ -295,24 +295,24 @@ function App() {
               <img
                 loading="lazy"
                 className="sky scale-[1.2] absolute top-0 left-0 w-full h-full object-cover"
-                src="/images/background.png"
+                src="/images/background.webp"
                 alt=""
               />
               <img
                 className="build scale-[1.2] absolute top-0 left-0 w-full h-full object-cover"
-                src="/images/buildings.png"
+                src="/images/buildings.webp"
                 alt=""
                 loading="lazy"
               />
               <img
                 className="gtaimg absolute top-[80px] sm:w-[500px] sm:h-[200px] md:w-[700px] md:h-[500px] md:bottom-[25%] lg:w-[600px] lg:left-[25%] object-cover"
-                src="/images/gta.png"
+                src="/images/gta.webp"
                 alt=""
                 loading="lazy"
               />
               <img
                 className="girl absolute bottom-0 left-[20%] sm:h-[200px] sm:w-[200px] md:w-[500px] md:h-[200px] lg:w-[900px] lg:h-[550px] object-contain"
-                src="/images/girl.png"
+                src="/images/girl.webp"
                 alt=""
                 loading="lazy"
               />
@@ -345,7 +345,7 @@ function App() {
                   loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="/images/car_TN.png"
+                  poster="/images/car_TN.webp"
                   
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
@@ -376,7 +376,7 @@ function App() {
                   loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="/images/aeroplane_TN.png"
+                  poster="/images/aeroplane_TN.webp"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -404,7 +404,7 @@ function App() {
                   loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="/images/night_TN.png"
+                  poster="/images/night_TN.webp"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -432,7 +432,7 @@ function App() {
                   loop
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="/images/spray_TN.png"
+                  poster="/images/spray_TN.webp"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -510,7 +510,7 @@ function App() {
       {/* Image */}
       <div className="md:w-1/3 flex items-center justify-center p-4 bg-black/50 md:mb-0 mb-4">
         <img
-          src="/images/MBF.png"
+          src="/images/MBF.webp"
           alt="Company Logo"
           className="w-24 h-24 md:w-32 md:h-32 object-contain"
           loading='lazy'
@@ -614,7 +614,7 @@ function App() {
         title: "How I Built a Foot Drop Assistive Device",
         description:
           "A deep dive into designing, prototyping, and testing a wearable device to improve gait.",
-        image: "/images/blog1.jpg",
+        image: "/images/blog1.webp",
         link: "https://yourbloglink.com",
       },
       {
@@ -623,14 +623,14 @@ function App() {
         description:
           "A walkthrough of my IoT and AI-powered prototypes.",
         video: "/videos/yourvideo.mp4",
-        poster: "/images/video_poster.jpg",
+        poster: "/images/video_poster.webp",
       },
       {
         type: "blog",
         title: "Lessons from Hackathons",
         description:
           "What I learned building under pressure and collaborating with diverse teams.",
-        image: "/images/blog2.jpg",
+        image: "/images/blog2.webp",
         link: "https://yourbloglink2.com",
       },
     ].map((item, index) => (
@@ -697,7 +697,7 @@ function App() {
   <div className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
   {/* Background image */}
   <img
-    src="/images/image.png"
+    src="/images/swag.webp"
     alt="GTA Sticker"
     className="absolute opacity-10 inset-0 w-full h-full object-cover pointer-events-none"
     loading='lazy'
