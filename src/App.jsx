@@ -11,6 +11,7 @@ function App() {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
 
   // Refs for videos
@@ -24,39 +25,44 @@ function App() {
     title: "Smart Healthcare Monitoring via IoT",
     color: "from-pink-500 to-purple-600",
     href: "https://docs.google.com/document/d/19k1MUN0G0Iueoa53PDX1YkqJf-zGT-lb/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
-    image: "images/Health.png",
+    image: "/images/Health.png",
   },
   {
     title: "Research work on Blockchain-based EHR Management",
     color: "from-blue-500 to-indigo-600",
     href: "https://github.com/mahi200512/MedChain",
-    image: "images/doctor.png",
+    image: "/images/doctor.png",
   },
   {
     title: "Foot Drop Dorsiflexion Device",
     color: "from-green-500 to-emerald-600",
     href: "https://docs.google.com/document/d/19k1MUN0G0Iueoa53PDX1YkqJf-zGT-lb/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
-    image: "images/footDorsi.jpg",
+    image: "/images/footDorsi.jpg",
   },
   {
     title: "Self-Driving Delivery Robot with IoT Integration",
     color: "from-pink-500 to-purple-600",
     href: "https://github.com/mahi200512/Delivery-Robot",
-    image: "images/delro.png",
+    image: "/images/delro.png",
   },
   {
     title: "Research work on Ponzi Detection with ZKP",
     color: "from-yellow-500 to-orange-600",
     href: "https://drive.google.com/file/d/1HF41jk5JNSqnwwQ64I07XOWiecNhlHk0/view?usp=drive_link",
-    image: "images/Ponzi.png",
+    image: "/images/Ponzi.png",
   },
   {
     title: "Train Object Detection",
     color: "from-red-500 to-pink-600",
     href: "https://github.com/mahi200512/Train-Crack-and-Object-Detection-using-IoT-and-Multi-sensors",
-    image: "images/Train.png",
+    image: "/images/Train.png",
   },
 ];
+  useEffect(() => {
+  const handleInteraction = () => setHasInteracted(true);
+  window.addEventListener("click", handleInteraction, { once: true });
+  return () => window.removeEventListener("click", handleInteraction);
+}, []);
 
   // Loader timeout
   useEffect(() => {
@@ -174,7 +180,7 @@ function App() {
                 </mask>
               </defs>
               <image
-                href="./images/background.png"
+                href="/images/background.png"
                 width="100%"
                 height="100%"
                 preserveAspectRatio="xMidYMid slice"
@@ -186,23 +192,33 @@ function App() {
       )}
       <audio
   ref={audioRef}
-  src="\Grand-Theft-Auto-San-Andreas-Theme-Song.mp3"
+  src="/Grand-Theft-Auto-San-Andreas-Theme-Song.mp3"
   autoPlay
   loop
   muted
 />
 <button
   onClick={() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (isMuted) {
-      audio.muted = false;
-      setIsMuted(false);
-    } else {
-      audio.muted = true;
-      setIsMuted(true);
-    }
-  }}
+  const audio = audioRef.current;
+  if (!audio) return;
+
+  if (!hasInteracted) {
+    alert("Please click anywhere on the page first to enable audio.");
+    return;
+  }
+
+  if (isMuted) {
+    audio.muted = false;
+    audio.play().catch(() => {
+      alert("Browser blocked autoplay with sound. Please try again.");
+    });
+    setIsMuted(false);
+  } else {
+    audio.muted = true;
+    setIsMuted(true);
+  }
+}}
+
   className="fixed bottom-6 right-6 z-50 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-full shadow-lg transition duration-300 flex items-center space-x-2"
 >
   {isMuted ? (
@@ -235,7 +251,6 @@ function App() {
     </>
   )}
 </button>
-
       {/* Main Content */}
       {showContent && (
         <div className="main w-full bg-black">
@@ -278,24 +293,28 @@ function App() {
             {/* Images */}
             <div className="imagesdiv relative w-full h-screen">
               <img
+                loading="lazy"
                 className="sky scale-[1.2] absolute top-0 left-0 w-full h-full object-cover"
-                src="./images/background.png"
+                src="/images/background.png"
                 alt=""
               />
               <img
                 className="build scale-[1.2] absolute top-0 left-0 w-full h-full object-cover"
-                src="./images/buildings.png"
+                src="/images/buildings.png"
                 alt=""
+                loading="lazy"
               />
               <img
                 className="gtaimg absolute top-[80px] sm:w-[500px] sm:h-[200px] md:w-[700px] md:h-[500px] md:bottom-[25%] lg:w-[600px] lg:left-[25%] object-cover"
-                src="./images/gta.png"
+                src="/images/gta.png"
                 alt=""
+                loading="lazy"
               />
               <img
                 className="girl absolute bottom-0 left-[20%] sm:h-[200px] sm:w-[200px] md:w-[500px] md:h-[200px] lg:w-[900px] lg:h-[550px] object-contain"
-                src="./images/girl.png"
+                src="/images/girl.png"
                 alt=""
+                loading="lazy"
               />
             </div>
             <div className="btmbar absolute bottom-0 left-0 w-full py-6 px-6 bg-gradient-to-t from-black to-transparent flex justify-center items-center">
@@ -319,12 +338,15 @@ function App() {
               >
                 <video
                   ref={hardwareRef}
-                  src="videos/car.mp4"
+                  src="/videos/car.mp4"
                   muted
                   loop
+                  preload="none"
+                  loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="images\car_TN.png"
+                  poster="/images/car_TN.png"
+                  
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -347,12 +369,14 @@ function App() {
               >
                 <video
                   ref={embeddedRef}
-                  src="videos/Aeroplane.mp4"
+                  src="/videos/Aeroplane.mp4"
                   muted
                   loop
+                  preload="none"
+                  loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="images\aeroplane_TN.png"
+                  poster="/images/aeroplane_TN.png"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -373,12 +397,14 @@ function App() {
               >
                 <video
                   ref={webRef}
-                  src="videos/nightlight.mp4"
+                  src="/videos/nightlight.mp4"
                   muted
                   loop
+                  preload="none"
+                  loading="lazy"
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="images\night_TN.png"
+                  poster="/images/night_TN.png"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -399,12 +425,14 @@ function App() {
               >
                 <video
                   ref={iotRef}
-                  src="videos/Spray.mp4"
+                  src="/videos/Spray.mp4"
                   muted
+                  preload="none"
+                  loading="lazy"
                   loop
                   playsInline
                   className="w-full h-[150px] md:h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
-                  poster="images\spray_TN.png"
+                  poster="/images/spray_TN.png"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute bottom-0 p-4">
@@ -442,7 +470,8 @@ function App() {
                   <img
                     src={project.image}
                     alt={project.title}
-                      className="w-full h-full object-cover filter blur-xs transition duration-300 group-hover:blur-none"
+                    className="w-full h-full object-cover filter blur-xs transition duration-300 group-hover:blur-none"
+                    loading='lazy'
                   />
                 </div>
                 <div className="flex-grow flex items-center justify-center px-3 py-4 text-center">
@@ -462,7 +491,7 @@ function App() {
 
   {/* Video Background */}
   <video
-    src="videos\20250715_2318_Street Duel Drama_simple_compose_01k07k6rcsedb988jkq8atj77m.mp4" // replace with your video path
+    src="/videos/20250715_2318_Street Duel Drama_simple_compose_01k07k6rcsedb988jkq8atj77m.mp4" // replace with your video path
     autoPlay
     loop
     muted
@@ -481,9 +510,10 @@ function App() {
       {/* Image */}
       <div className="md:w-1/3 flex items-center justify-center p-4 bg-black/50 md:mb-0 mb-4">
         <img
-          src="images/MBF.png"
+          src="/images/MBF.png"
           alt="Company Logo"
           className="w-24 h-24 md:w-32 md:h-32 object-contain"
+          loading='lazy'
         />
       </div>
       {/* Content */}
@@ -584,7 +614,7 @@ function App() {
         title: "How I Built a Foot Drop Assistive Device",
         description:
           "A deep dive into designing, prototyping, and testing a wearable device to improve gait.",
-        image: "images/blog1.jpg",
+        image: "/images/blog1.jpg",
         link: "https://yourbloglink.com",
       },
       {
@@ -592,15 +622,15 @@ function App() {
         title: "My Project Showcase",
         description:
           "A walkthrough of my IoT and AI-powered prototypes.",
-        video: "videos/yourvideo.mp4",
-        poster: "images/video_poster.jpg",
+        video: "/videos/yourvideo.mp4",
+        poster: "/images/video_poster.jpg",
       },
       {
         type: "blog",
         title: "Lessons from Hackathons",
         description:
           "What I learned building under pressure and collaborating with diverse teams.",
-        image: "images/blog2.jpg",
+        image: "/images/blog2.jpg",
         link: "https://yourbloglink2.com",
       },
     ].map((item, index) => (
@@ -627,6 +657,7 @@ function App() {
             src={item.image}
             alt={item.title}
             className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+            loading='lazy'
           />
         )}
         <div className="absolute inset-0 bg-black/60 group-hover:bg-black/80 transition duration-500" />
@@ -666,9 +697,10 @@ function App() {
   <div className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
   {/* Background image */}
   <img
-    src="images/image.png"
+    src="/images/image.png"
     alt="GTA Sticker"
     className="absolute opacity-10 inset-0 w-full h-full object-cover pointer-events-none"
+    loading='lazy'
   />
  
   {/* Content */}
