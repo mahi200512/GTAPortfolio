@@ -36,7 +36,7 @@ function App() {
   {
     title: "Foot Drop Dorsiflexion Device",
     color: "from-green-500 to-emerald-600",
-    href: "https://docs.google.com/document/d/19k1MUN0G0Iueoa53PDX1YkqJf-zGT-lb/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
+    href: "https://docs.google.com/presentation/d/1WkIkigwPK7kFEZhOlya7iox4El1uDx5Y/edit?usp=drive_link&ouid=101047303582015451854&rtpof=true&sd=true",
     image: "/images/footDorsi.webp",
   },
   {
@@ -263,10 +263,11 @@ function App() {
                 </h3>
               </div>
               <div className="hidden md:flex space-x-6 text-white font-semibold">
-                <a href="#" className="hover:text-yellow-300 transition-all">Home</a>
-                <a href="#" className="hover:text-yellow-300 transition-all">Projects</a>
-                <a href="#" className="hover:text-yellow-300 transition-all">About</a>
-                <a href="#" className="hover:text-yellow-300 transition-all">Contact</a>
+                <a href="#projects" className="hover:text-yellow-300 transition-all">Projects</a>
+                <a href="#internship" className="hover:text-yellow-300 transition-all">Experience</a>
+                <a href="#achievements" className="hover:text-yellow-300 transition-all">Achievements</a>
+                <a href="#blog" className="hover:text-yellow-300 transition-all">Blogs</a>
+                <a href="#contact" className="hover:text-yellow-300 transition-all">Contact</a>
               </div>
               <div
                 className="md:hidden text-white text-2xl z-50"
@@ -276,10 +277,11 @@ function App() {
               </div>
               {open && (
                 <div className="absolute top-full left-0 w-full bg-black/90 text-white flex flex-col items-center space-y-4 py-6 z-40 md:hidden animate-slide-down">
-                  <a href="#" className="hover:text-yellow-300 transition-all">Home</a>
-                  <a href="#" className="hover:text-yellow-300 transition-all">Projects</a>
-                  <a href="#" className="hover:text-yellow-300 transition-all">About</a>
-                  <a href="#" className="hover:text-yellow-300 transition-all">Contact</a>
+                  <a href="#projects" className="hover:text-yellow-300 transition-all">Projects</a>
+                <a href="#internship" className="hover:text-yellow-300 transition-all">Experience</a>
+                <a href="#achievements" className="hover:text-yellow-300 transition-all">Achievements</a>
+                <a href="#blog" className="hover:text-yellow-300 transition-all">Blogs</a>
+                <a href="#contact" className="hover:text-yellow-300 transition-all">Contact</a>
                 </div>
               )}
               <a
@@ -291,7 +293,7 @@ function App() {
               </a>
             </div>
             {/* Images */}
-            <div className="imagesdiv relative w-full h-screen">
+            <div className="imagesdiv relative w-full min-h-screen">
               <img
                 loading="lazy"
                 className="sky scale-[1.2] absolute top-0 left-0 w-full h-full object-cover"
@@ -316,13 +318,24 @@ function App() {
                 alt=""
                 loading="lazy"
               />
-            </div>
-            <div className="btmbar absolute bottom-0 left-0 w-full py-6 px-6 bg-gradient-to-t from-black to-transparent flex justify-center items-center">
-              <i className="bx bxs-caret-down animate-bounce text-3xl"></i>
-            </div>
+            
+          {/* Bottom Gradient (always visible) */}
+<div className="absolute bottom-0 left-0 w-full z-10">
+  <div className="h-10 sm:h-16 bg-gradient-to-t from-black to-transparent" />
+</div>
+
+{/* Arrow Icon (hidden on mobile) */}
+<div
+  className="hidden sm:flex absolute bottom-2 left-0 w-full justify-center items-center z-20 cursor-pointer"
+  onClick={() => document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' })}
+>
+  <i className="bx bxs-caret-down animate-bounce text-3xl text-white" />
+</div>
+</div>
+            
           </div>
           {/* Banner Section */}
-          <div className="flex flex-col w-full h-full overflow-y-auto py-12 px-4 sm:px-6 lg:px-8 space-y-8">
+          <div id='skills' className="flex flex-col w-full h-full overflow-y-auto py-12 px-4 sm:px-6 lg:px-8 space-y-8">
             <h2 className="text-center text-3xl font-extrabold text-white mb-4 tracking-wider uppercase">
               My Technical Skills
             </h2>
@@ -444,7 +457,7 @@ function App() {
             </div>
                         </div>
             
-            <div className="relative w-full bg-black py-12 overflow-hidden">
+            <div id="projects" className="relative w-full bg-black py-12 overflow-hidden">
   <h2 className="text-center text-3xl font-extrabold text-white mb-12 tracking-wider uppercase neon-text">
     My Projects
   </h2>
@@ -487,7 +500,7 @@ function App() {
     </div>
     {/* Internship Section */}
 {/* Internship Section */}
-<div className="relative w-full overflow-hidden">
+<div id="internship" className="relative w-full overflow-hidden">
 
   {/* Video Background */}
   <video
@@ -535,7 +548,7 @@ function App() {
           </p>
         </div>
         <a
-          href="https://your-internship-certificate-link.com"
+          href="https://drive.google.com/file/d/1msUk0HtVvQXWh-h70WVPD87hXKpq2ZHS/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-lg shadow-xl uppercase tracking-wide transition-all duration-300 neon-glow mt-4"
@@ -550,7 +563,7 @@ function App() {
 </div>
 
 {/* Achievements Section */}
-<div className="relative w-full h-screen overflow-hidden">
+<div id="achievements" className="relative w-full h-screen overflow-hidden">
   {/* Background Video */}
   <video
     src="" // your GTA video
@@ -694,7 +707,7 @@ function App() {
   </div>
 </div> */}
 {/* Blogs & Videos Section */}
-<div className="relative w-full bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
+<div id='blog' className="relative w-full bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
   <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-widest uppercase neon-text mb-6">
     My Blogs & Videos
   </h2>
@@ -704,7 +717,7 @@ function App() {
 </div>
 
 
-  <div className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <div id="contact" className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
   {/* Background image */}
   <img
     src="/images/swag.webp"
@@ -724,13 +737,13 @@ function App() {
     {/* Contact buttons */}
     <div className="flex justify-center gap-4 flex-wrap">
       <a
-        href="mailto:your@email.com"
+        href="mailto:thakur23101@iiitnr.edu.in"
         className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-lg shadow-xl transition-all duration-300"
       >
         Email Me
       </a>
       <a
-        href="https://linkedin.com/in/yourprofile"
+        href="https://www.linkedin.com/in/thakur-mahima-nuruti-b57532290/"
         target="_blank"
         rel="noopener noreferrer"
         className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-lg shadow-xl transition-all duration-300"
