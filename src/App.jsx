@@ -351,7 +351,7 @@ function App() {
               >
                 <video
                   ref={hardwareRef}
-                  src="/videos/car.mp4"
+                  src="/videos/car.webm"
                   muted
                   loop
                   preload="none"
@@ -382,7 +382,7 @@ function App() {
               >
                 <video
                   ref={embeddedRef}
-                  src="/videos/Aeroplane.mp4"
+                  src="/videos/Aeroplane.webm"
                   muted
                   loop
                   preload="none"
@@ -410,7 +410,7 @@ function App() {
               >
                 <video
                   ref={webRef}
-                  src="/videos/nightlight.mp4"
+                  src="/videos/nightlight.webm"
                   muted
                   loop
                   preload="none"
@@ -438,7 +438,7 @@ function App() {
               >
                 <video
                   ref={iotRef}
-                  src="/videos/Spray.mp4"
+                  src="/videos/Spray.webm"
                   muted
                   preload="none"
                   loading="lazy"
@@ -504,7 +504,7 @@ function App() {
 
   {/* Video Background */}
   <video
-    src="/videos/20250715_2318_Street Duel Drama_simple_compose_01k07k6rcsedb988jkq8atj77m.mp4" // replace with your video path
+    src="/videos/20250715_2318_Street Duel Drama_simple_compose_01k07k6rcsedb988jkq8atj77m.webm" // replace with your video path
     autoPlay
     loop
     muted
