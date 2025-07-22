@@ -599,7 +599,7 @@ function App() {
     </ul>
   </div>
   </div>
-  {/* Blogs & Videos Section */}
+  {/* Blogs & Videos Section
 <div className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8">
   <h2 className="text-center text-3xl md:text-4xl font-extrabold text-white mb-12 tracking-widest uppercase neon-text">
     My Blogs & Videos
@@ -692,7 +692,17 @@ function App() {
       </div>
     ))}
   </div>
+</div> */}
+{/* Blogs & Videos Section */}
+<div className="relative w-full bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
+  <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-widest uppercase neon-text mb-6">
+    My Blogs & Videos
+  </h2>
+  <p className="text-yellow-400 text-xl md:text-2xl font-semibold tracking-wide animate-pulse">
+    🚧 Coming Soon 🚧
+  </p>
 </div>
+
 
   <div className="relative w-full bg-black py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
   {/* Background image */}
